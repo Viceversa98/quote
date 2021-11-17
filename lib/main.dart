@@ -3,8 +3,8 @@ import 'quote.dart';
 import 'quote_card.dart';
 
 void main() => runApp(MaterialApp(
-  home : QuoteList(),
-));
+      home: QuoteList(),
+    ));
 
 class QuoteList extends StatefulWidget {
   @override
@@ -12,38 +12,33 @@ class QuoteList extends StatefulWidget {
 }
 
 class _QuoteListState extends State<QuoteList> {
-
-  List<Quote> quotes = [
-    Quote(author:'Alan',text :'Its is the end'),
+  List<Quote> quote = [
+    Quote(author: 'Alan', text: 'Its is the end'),
     Quote(text: 'barang padu', author: 'Koco koco tangan di atas'),
   ];
-
-
-
-  List<String> authors = [''];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey,
-      appBar: AppBar(
-        title: Text('Quote'),
-        centerTitle: true,
-        backgroundColor: Colors.amberAccent,
-      ),
-
+        backgroundColor: Colors.grey,
+        appBar: AppBar(
+          title: Text('Quote'),
+          centerTitle: true,
+          backgroundColor: Colors.amberAccent,
+        ),
         body: Column(
-          children: quotes.map(( quotes) => QuoteCard(
-              quotes :quotes,
-              delete:() {
-                setState(() {
-                  quotes.remove(quotes);
-                });
-              }
-
-          )).toList(),
-    )
-    );
+          children: quote
+              .map((quotes) => QuoteCard(
+                    quotes: quotes,
+                    delete: () {
+                      setState(() {
+                        if (quote != null) {
+                          quote.remove(quotes);
+                        }
+                      });
+                    },
+                  ))
+              .toList(),
+        ));
   }
 }
-

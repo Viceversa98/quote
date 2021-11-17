@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 import 'quote.dart';
 
 class QuoteCard extends StatelessWidget {
-
   final Quote quotes;
   final VoidCallback delete;
 
- QuoteCard({Key? key,required this.quotes, required this.delete});
-
-
-
+  QuoteCard({Key? key, required this.quotes, required this.delete});
 
   @override
   Widget build(BuildContext context) {
@@ -38,13 +34,12 @@ class QuoteCard extends StatelessWidget {
                   color: Colors.amberAccent[600],
                 ),
               ),
-
             ),
             SizedBox(height: 8),
             FlatButton.icon(
-                onPressed :delete(),
+                onPressed: delete,
                 icon: Icon(Icons.delete),
-                label:Text('delete quote')),
+                label: Text('delete quote')),
           ],
         ),
       ),
